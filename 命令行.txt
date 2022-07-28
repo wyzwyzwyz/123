@@ -1,0 +1,38 @@
+/workspace/vamb-data/gi/wyz_test/data/test.corpus
+
+
+bibert-vocab -c /workspace/vamb-data/gi/wyz_test/data/test.corpus -o /workspace/vamb-data/gi/wyz_test/data/test.vocab -m 20
+
+
+bibert --mode pretrain -c /workspace/vamb-data/gi/wyz_test/data/tra.fna.shf.500.frag.6mer -o /workspace/vamb-data/gi/wyz_test/model/ --logging_path /workspace/vamb-data/gi/wyz_test/log/test.log -v /workspace/vamb-data/gi/wyz_test/data/test.vocab -hs 768 -l 12 -a 8 -s 512 -b 32 -e 6 -w 32 -ga 20 --pooling_strategy MAX --with_cuda True --corpus_lines_train 2000 --corpus_lines_test 0  -we 40 --lr 3e-3 --adam_weight_decay 1e-3 --adam_beta1 0.9 --adam_beta2 0.999 -lm -dm -lmm 6 -lms 3 -incr 0.1 --alpha 1.0 --gamma 1.0 -lrg 0.998 -adg 0.95 -lrp 10 -mn 0.0
+
+/workspace/cds/Euk/1015/bs_8sl_512/tra.fna.shf.500.frag.6mer
+
+
+
+bibert --mode cluster --output_all_encoded -l 12 -a 8 --hidden 768 -b 32 -p /workspace/vamb-data/gi/wyz_test/model/pre_h768-l12-a8-b32-lr0.003-lmTrue-pairFalse-ga20-2022_07_27_10_20_59.ep2.pt -o /workspace/vamb-data/gi/wyz_test/output  --embed_path /workspace/vamb-data/gi/wyz_test/embedding_path --corpus_lines_test 1000 -t /workspace/vamb-data/gi/wyz_test/data/tra.fna.shf.500.frag.6mer  -v /workspace/vamb-data/gi/wyz_test/data/test.vocab 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
